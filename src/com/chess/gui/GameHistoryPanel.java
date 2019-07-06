@@ -2,7 +2,6 @@ package com.chess.gui;
 
 import com.chess.engine.board.Board;
 import com.chess.engine.board.Move;
-import com.chess.engine.pieces.Rook;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
@@ -10,7 +9,7 @@ import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.chess.gui.Table.*;
+import static com.chess.gui.Table.MoveLog;
 
 public class GameHistoryPanel extends JPanel {
 
@@ -45,7 +44,7 @@ public class GameHistoryPanel extends JPanel {
             }
         }
 
-        if(moveHistory.size()>0) {
+        if(moveHistory.getMoves().size()>0) {
             final Move lastMove = moveHistory.getMoves().get(moveHistory.size() -1);
             final String moveText = lastMove.toString();
             if(lastMove.getMovedPiece().getPieceAlliance().isWhite()) {

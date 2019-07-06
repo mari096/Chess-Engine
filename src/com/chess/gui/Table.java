@@ -240,13 +240,10 @@ public class Table {
                         }
                         else {
                             destinationTile = chessBoard.getTile(tileId);
-                            //System.out.println(sourceTile.getTileCoordinate() + " " + destinationTile.getTileCoordinate());
                             final Move move = MoveFactory.createMove(chessBoard,
                                                                             sourceTile.getTileCoordinate(),
                                                                             destinationTile.getTileCoordinate());
-                            System.out.println(move.getCurrentCoordinate() + " " + move.getDestinationCoordinate());
                             final MoveTransition transition = chessBoard.currentPlayer().makeMove(move);
-                            System.out.println(chessBoard.currentPlayer().getAlliance().toString() + " move made!");
                             if(transition.getMoveStatus().isDone()) {
                                 chessBoard = transition.getTransitionBoard();
                                 moveLog.addMove(move);
@@ -260,7 +257,7 @@ public class Table {
                         @Override
                         public void run() {
                             gameHistoryPanel.redo(chessBoard, moveLog);
-                            takenPiecesPanel.redo(moveLog);
+                            takenPiecesPanel.     redo(moveLog);
                             boardPanel.drawBoard(chessBoard);
                         }
                     } );
